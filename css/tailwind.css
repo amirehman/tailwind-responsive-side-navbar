@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar-active-site-wrapper {
+    animation: navbar-active 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-fill-mode: forwards;
+    @apply fixed w-full h-screen overflow-y-hidden bg-white pl-4 rounded-[30px] border;
+}
+
+.navbar-deactive-site-wrapper {
+    animation: navbar-deactive 0.5s;
+    animation-fill-mode: forwards;
+    @apply fixed w-full h-screen overflow-y-hidden bg-white;
+}
+
+.active-navbar-body {
+    @apply overflow-y-hidden md:overflow-y-auto;
+}
+
+@keyframes navbar-active {
+    0% {
+        @apply left-10 top-0;
+    }
+    100% {
+        @apply left-72 rotate-6 top-10;
+        box-shadow: -30px 30px 5px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes navbar-deactive {
+    0% {
+        @apply left-72 rotate-6 top-10 rounded-[30px];
+        box-shadow: -30px 30px 5px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        @apply left-0 top-0 rounded-[0px];
+    }
+}
